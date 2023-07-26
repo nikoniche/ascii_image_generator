@@ -3,6 +3,7 @@ from PIL import Image
 
 # ascii characters used to build the output text
 ASCII_CHARS = [" ", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
+INVERTED_CHARS = [x for x in reversed(ASCII_CHARS)]
 
 VERTICAL_RATIO = 0.6
 
@@ -10,7 +11,7 @@ with open("config.json", "r") as r:
     config = json.load(r)
 
 
-def convert_image_to_text(image_path: str, font_size: int, new_pixel_width=None):
+def convert_image_to_text(image_path: str, font_size: int, new_pixel_width=None, inverted=False):
     """Converts an image to a txt file."""
 
     # resize image according to a new width
@@ -36,7 +37,8 @@ def convert_image_to_text(image_path: str, font_size: int, new_pixel_width=None)
     def pixels_to_ascii(image):
         print("Converting pixels to ASCII characters.")
         pixels = image.getdata()
-        characters = "".join([ASCII_CHARS[pixel // 25] for pixel in pixels])
+        chars = ASCII_CHARS if not inverted else INVERTED_CHARS
+        characters = "".join([chars[pixel // 25] for pixel in pixels])
         return characters
 
     # attempt to open image from user-input
