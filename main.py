@@ -1,7 +1,7 @@
 from image_to_ascii import convert_image_to_text
 from ascii_to_image import generate_image
 
-original = input("Path to original image: ")
+original = input("Path to the original image: ")
 new_pixel_width = input("Pixel width of the ASCII image: ")
 font_size = int(input("Font size: "))
 

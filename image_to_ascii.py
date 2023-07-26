@@ -2,7 +2,7 @@ import json
 from PIL import Image
 
 # ascii characters used to build the output text
-ASCII_CHARS = [" ", "#", "S", "%", "?", "*", "+", ";", ":", ",", ".", "@", "X", "/", "-", "_"]
+ASCII_CHARS = [" ", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
 VERTICAL_RATIO = 0.6
 
