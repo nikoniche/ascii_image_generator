@@ -42,7 +42,7 @@ class UI(tk.Tk):
 
         self.image_references = []
 
-        self.title("Image Substitution")
+        self.title("ASCII image generator")
         self.geometry(f"{WIDTH}x{HEIGHT}")
         self.config(bg=BG_COLOR)
 
