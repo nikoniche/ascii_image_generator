@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import os
 from PIL import Image
-import shutil
 
 URL = "https://onlineasciitools.com/convert-ascii-to-image"
 
@@ -30,7 +29,7 @@ def get_element(driver, by, path):
         return element
 
 
-def generate_image(font_size: int):
+def generate_image(font_size: int) -> Image:
     """Using a selenium webdriver pastes a txt file representation of an image to a set website that converts
     it to an image and downloads to a designated folder."""
 
@@ -98,11 +97,13 @@ def generate_image(font_size: int):
     time.sleep(1)
     driver.quit()
 
-    print("Renaming and moving final result")
-    if os.path.exists("converted_image.png"):
-        os.remove("converted_image.png")
+    # print("Renaming and moving final result")
+    # if os.path.exists("converted_image.png"):
+    #     os.remove("converted_image.png")
     os.remove("ascii_image.txt")
-    shutil.move(DOWNLOAD, "converted_image.png")
-    Image.open("converted_image.png").show()
+    # shutil.move(DOWNLOAD, "converted_image.png")
+    # Image.open("converted_image.png").show()
 
     print("Finished.")
+
+    return Image.open(DOWNLOAD)
