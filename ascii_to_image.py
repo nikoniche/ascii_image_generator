@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import Select
 import os
 from PIL import Image
 
-URL = "https://onlineasciitools.com/convert-ascii-to-image"
+URL = "the website no longer exists"
 
 with open("config.json", "r") as r:
     config = json.load(r)
